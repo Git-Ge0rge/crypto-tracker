@@ -26,8 +26,6 @@ const CryptoTable = (props) => {
                 <TableRow />
                 <TableRow />
                 <TableRow />
-                
-
             </tbody>
             </Table>
         </div>

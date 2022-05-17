@@ -1,37 +1,43 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes as Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import './App.css';
-import HomePage from '../../components/HomePage/HomePage'
+import CryptoPage from '../../components/CryptoPage/CryptoPage'
 // import NavBar from '../../components/Nav/Nav.jsx'
 import { Button } from 'react-bootstrap'
+
 
 function App() {
 
   return (
-    <div className="App">
-        <HomePage/>
-        <Button bsStyle="primary">Primary</Button>
-        
-    </div>
-   
+    <Router>
+      <div className="App">
+          <CryptoPage/>
+          <Button variant="primary">Primary</Button>{' '}
+      </div>
+    </Router>
   );
 }
 
 export default App;
 
-  // <div className="App">
-    //   <header className="App-header">
-    //   </header>
-    //   <Routes> 
-    //     <Route exact path='/' render={() =>
-    //           <HomePage/>
-    //         }
-    //     />
-    //     <Route exact path='/swap' render={() =>
-    //           <h1> Dex App </h1>
-    //         }
-    //     />
+// function About() {
+//   return <h2>About</h2>;
+// }
 
-    //   </Routes> 
-  
-    // </div>
+{/* <Router>
+<div className="App">
+<Switch>
+  <Route path="/">
+    <CryptoPage/>
+  </Route>
+  <Route path="/about">
+    <About />
+  </Route>
+</Switch>
+</div>
+</Router> */}

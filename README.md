@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+### README Requirements
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Don't underestimate the value of a well crafted `README.md`.
 
-## Available Scripts
+The `README.md` introduces your project to prospective employers and forms their first impression of your work!
 
-In the project directory, you can run:
+> Note: Do not include project planning (user stories, wireframes or ERDs) in the `README.md`.
 
-### `npm start`
+Include the following sections within the **`README.md`**:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+☐ **App Title:** Contains a description of what the app does and optional background info.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+☐ **Screenshot(s):** A screenshot of your app's landing page and any other screenshots of interest.
 
-### `npm test`
+☐ **Technologies Used**: List of the technologies used.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+☐ **Getting Started**: That Includes:
 
-### `npm run build`
+- A link to the **deployed app** (Heroku)
+- A link to the **Trello board** used for the project's planning that includes user stories, wireframes & an ERD.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+☐ **Next Steps**: Planned future enhancements (icebox items).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Technical Requirements
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+☐ A **working** full-stack, single-page application hosted on Heroku.
 
-### `npm run eject`
+☐ Incorporate the technologies of the **MERN-stack**:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- MongoDB/Mongoose
+- Express
+- React
+- Node
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+☐ **Have a well-styled interactive front-end**.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+☐ Communicates with the **Express** backend via AJAX.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+☐ Implement token-based **authentication**. Including the ability of a user to sign-up, log in & log out.
 
-## Learn More
+☐ Implement **authorization** by restricting CUD data functionality to authenticated users. Also, navigation should respond to the login status of the user.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+☐ **Have a well-scoped feature-set**. Full-CRUD data operations are not required if one or more of the following are included:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Consume data from a third-party API.
+- Implement additional functionality if the user is an admin.
+- Utilize multi-user, real-time communications (beware that this is difficult and time consuming - please seek instructor approval).
