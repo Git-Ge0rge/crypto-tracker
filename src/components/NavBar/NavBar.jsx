@@ -12,7 +12,7 @@ const NavBar = (props) => {
   return (
     <Nav activeKey="1" onSelect={handleSelect}>
       <Nav.Item>
-        <Nav.Link eventKey="1" href="#/home">
+        <Nav.Link eventKey="1" href="/home">
           CryptoCurrencies
         </Nav.Link>
       </Nav.Item>

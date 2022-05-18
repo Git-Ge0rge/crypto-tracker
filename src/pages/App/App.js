@@ -7,19 +7,23 @@ import {
 } from "react-router-dom";
 import './App.css';
 import CryptoPage from '../../components/CryptoPage/CryptoPage'
+import HomePage from '../../components/HomePage/HomePage'
 // import NavBar from '../../components/Nav/Nav.jsx'
 import { Button } from 'react-bootstrap'
+import NavBar from '../../components/NavBar/NavBar'
 
 
 function App() {
 
   return (
-    <Router>
-      <div className="App">
-          <CryptoPage/>
-          <Button variant="primary">Primary</Button>{' '}
+    <Router> 
+      <div>
+        <NavBar/>
+        <HomePage/> 
+       
       </div>
     </Router>
+   
   );
 }
 
@@ -39,5 +43,13 @@ export default App;
     <About />
   </Route>
 </Switch>
+</div>
+</Router> */}
+
+
+{/* <Router>
+<div className="App">
+    <HomePage/>
+    <Button variant="primary">Primary</Button>{' '}
 </div>
 </Router> */}
