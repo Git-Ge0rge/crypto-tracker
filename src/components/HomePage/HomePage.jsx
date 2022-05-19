@@ -1,6 +1,4 @@
 import React from 'react'
-import NavBar from '../NavBar/NavBar'
-import CryptoTable from '../CryptoTable/CryptoTable'
 import './HomePage.css'
 import Banner from "../Banner/Banner"
 
