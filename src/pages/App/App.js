@@ -1,28 +1,29 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Routes as Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-import CryptoPage from '../../components/CryptoPage/CryptoPage'
-import HomePage from '../../components/HomePage/HomePage'
-// import NavBar from '../../components/Nav/Nav.jsx'
-import { Button } from 'react-bootstrap'
 import NavBar from '../../components/NavBar/NavBar'
-
+import HomePage from '../../components/HomePage/HomePage'
+import CryptoPage from '../../components/CryptoPage/CryptoPage'
 
 function App() {
 
   return (
-    <Router> 
+    <Router>
       <div>
-        <NavBar/>
-        <HomePage/> 
-       
+        <header className="appHeader"></header> 
+          <NavBar/>
+          <Switch>
+              <Route exact path={["/home", "/", "/welcome"]} render={() =>
+              <HomePage/> 
+              }/>
+          </Switch>
+          <Switch>
+              <Route path='/coins' render={() =>
+              <CryptoPage/> 
+              }/>
+          </Switch>
       </div>
-    </Router>
+    </Router>    
    
   );
 }

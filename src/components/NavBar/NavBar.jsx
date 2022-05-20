@@ -7,12 +7,12 @@ import './NavBar.css'
 import { Nav, NavDropdown } from 'react-bootstrap';
 
 const NavBar = (props) => {
-  const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
+  const handleSelect = (eventKey) => console.log(`selected ${eventKey}`);
 
   return (
     <Nav activeKey="1" onSelect={handleSelect}>
       <Nav.Item>
-        <Nav.Link eventKey="1" href="/home">
+        <Nav.Link eventKey="1" href="/coins">
           CryptoCurrencies
         </Nav.Link>
       </Nav.Item>
