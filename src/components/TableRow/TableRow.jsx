@@ -4,17 +4,16 @@ import './TableRow.css'
 const TableRow = (props) => {
     return (
         <tr>
-            <td>1</td>
-            <td>Bitcoin</td>
-            <td>$30,115.77</td>
-            <td>2.25%	</td>
-            <td>3.91%</td>
-            <td>$571,436,221,336</td>
-            <td>$29.69B (989345.13 BTC)</td>
-            <td>19,042,425 BTC</td>
-            <td><img alt="Bitcoin Chart" src='https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/1.svg'/></td>
+            <td>⭐</td>
+            <td>{props.market_cap_rank} <img alt={props.name} src={props.image}/>  </td>
+            <td>{props.name} ({props.symbol.toUpperCase()})</td>
+            <td>${props.current_price}</td>
+            <td>{parseFloat(props.price_change_percentage_24h).toFixed(2)}%</td>
+            <td>${props.market_cap.toLocaleString('en-US')}</td>
+            <td>Chart Here</td>
+           
         </tr>         
     )
 }
 
-export default TableRow;
+export default TableRow

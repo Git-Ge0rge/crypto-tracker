@@ -29,28 +29,3 @@ function App() {
 }
 
 export default App;
-
-// function About() {
-//   return <h2>About</h2>;
-// }
-
-{/* <Router>
-<div className="App">
-<Switch>
-  <Route path="/">
-    <CryptoPage/>
-  </Route>
-  <Route path="/about">
-    <About />
-  </Route>
-</Switch>
-</div>
-</Router> */}
-
-
-{/* <Router>
-<div className="App">
-    <HomePage/>
-    <Button variant="primary">Primary</Button>{' '}
-</div>
-</Router> */}
