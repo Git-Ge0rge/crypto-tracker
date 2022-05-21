@@ -1,5 +1,5 @@
 import React from 'react'
-import CryptoTable from '../CryptoTable/CryptoTable'
+import CryptoTable from '../../components/CryptoTable/CryptoTable'
 import './CryptoPage.css'
 
 const CryptoPage = (props) => {
