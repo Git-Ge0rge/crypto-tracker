@@ -12,26 +12,31 @@ const NavBar = (props) => {
   return (
     <Nav activeKey="1" onSelect={handleSelect}>
       <Nav.Item>
-        <Nav.Link eventKey="1" href="/coins">
+        <Nav.Link eventKey="1" href="/home">
+          Home
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="2" href="/coins">
           CryptoCurrencies
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link eventKey="2" title="Item">
+        <Nav.Link eventKey="3" title="Item">
           Portfolio
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link eventKey="3" disabled>
+        <Nav.Link eventKey="4" disabled>
           Swap (Coming Soon)
         </Nav.Link>
       </Nav.Item>
       <NavDropdown title="Account" id="nav-dropdown">
-        <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
-        <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
-        <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
+        <NavDropdown.Item eventKey="5.1">Action</NavDropdown.Item>
+        <NavDropdown.Item eventKey="5.2">Another action</NavDropdown.Item>
+        <NavDropdown.Item eventKey="5.3">Something else here</NavDropdown.Item>
         <NavDropdown.Divider />
-        <NavDropdown.Item eventKey="4.4">Log Out</NavDropdown.Item>
+        <NavDropdown.Item eventKey="5.4">Log Out</NavDropdown.Item>
       </NavDropdown>
     </Nav>
   )
