@@ -4,6 +4,8 @@ import './App.css';
 import NavBar from '../../components/NavBar/NavBar'
 import HomePage from '../HomePage/HomePage'
 import CryptoPage from '../CryptoPage/CryptoPage'
+import SignupPage from '../SignupPage/SignupPage'
+import LoginPage from '../LoginPage/LoginPage'
 
 function App() {
 
@@ -20,6 +22,16 @@ function App() {
           <Switch>
               <Route path='/coins' render={() =>
               <CryptoPage/> 
+              }/>
+          </Switch>
+          <Switch>
+              <Route path='/signup' render={() =>
+              <SignupPage/> 
+              }/>
+          </Switch>
+          <Switch>
+              <Route path='/login' render={() =>
+              <LoginPage/> 
               }/>
           </Switch>
       </div>

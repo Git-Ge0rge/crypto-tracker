@@ -9,7 +9,7 @@ const userSchema = new Schema({
   email: {type: String, required: true, lowercase: true, unique: true},
   password: String,
   watchlist: [String],
-  portfolio: [String]
+  // portfolio: [String]
 }, {
   timestamps: true
 });

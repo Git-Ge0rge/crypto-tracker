@@ -38,6 +38,16 @@ const NavBar = (props) => {
         <NavDropdown.Divider />
         <NavDropdown.Item eventKey="5.4">Log Out</NavDropdown.Item>
       </NavDropdown>
+      <Nav.Item>
+        <Nav.Link eventKey="6" href="/signup">
+          SignUp
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="7" href="/login">
+          LogIn
+        </Nav.Link>
+      </Nav.Item>
     </Nav>
   )
 };
