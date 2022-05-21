@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import NavBar from '../../components/NavBar/NavBar'
-import HomePage from '../../components/HomePage/HomePage'
-import CryptoPage from '../../components/CryptoPage/CryptoPage'
+import HomePage from '../HomePage/HomePage'
+import CryptoPage from '../CryptoPage/CryptoPage'
 
 function App() {
 
