@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './LoginPage.css';
 
-// import userService from '../../utils/userService'
+import userService from '../../utils/userService'
 
 class LoginPage extends Component {
   
@@ -20,7 +20,7 @@ class LoginPage extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     try {
-    //   await userService.login({ ...this.state })
+      await userService.login({ ...this.state })
       this.props.handleLogin();
       this.props.history.push('/');
     } catch (err) {
