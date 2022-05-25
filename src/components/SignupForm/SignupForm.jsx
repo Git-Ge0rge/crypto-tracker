@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-// import userService from '../../utils/userService';
+import userService from '../../utils/userService';
 
 class SignupForm extends Component {
 
@@ -22,10 +22,10 @@ class SignupForm extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // await userService.signup(this.state);
+      await userService.signup(this.state);
       this.props.handleSignup();
-      // Successfully signed up - show GamePage
-      this.props.history.push('/');
+      // Successfully signed up - show homepage
+      this.props.history.push('/welcome');
     } catch (err) {
       // Invalid user data (probably duplicate email)
       this.props.updateMessage(err.message);

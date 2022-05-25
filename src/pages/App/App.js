@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import NavBar from '../../components/NavBar/NavBar'
@@ -6,8 +6,21 @@ import HomePage from '../HomePage/HomePage'
 import CryptoPage from '../CryptoPage/CryptoPage'
 import SignupPage from '../SignupPage/SignupPage'
 import LoginPage from '../LoginPage/LoginPage'
+import userService from '../../utils/userService'
 
 function App() {
+  const [user, setUser] = useState(null)
+
+  const handleLogout = () => {
+    userService.logout();
+    setUser(null)
+  }
+
+  const handleSignupOrLogin = () => {
+    console.log('handle sign up called')
+    setUser(userService.getUser())
+  }
+
 
   return (
     <Router>
@@ -16,22 +29,31 @@ function App() {
           <NavBar/>
           <Switch>
               <Route exact path={["/home", "/", "/welcome"]} render={() =>
-              <HomePage/> 
+              <HomePage
+                // handleLogout={this.handleLogout} // Implement handle logout trigger on component
+              /> 
               }/>
           </Switch>
           <Switch>
               <Route path='/coins' render={() =>
-              <CryptoPage/> 
+              <CryptoPage
+                // handleLogout={this.handleLogout} // Implement handle logout trigger on component
+              /> 
               }/>
           </Switch>
           <Switch>
-              <Route path='/signup' render={() =>
-              <SignupPage/> 
+              <Route path='/signup' render={(props) =>
+              <SignupPage
+                handleSignup = {handleSignupOrLogin}
+                history = {props.history}
+              /> 
               }/>
           </Switch>
           <Switch>
               <Route path='/login' render={() =>
-              <LoginPage/> 
+              <LoginPage
+                // handleLogin={this.handleSignupOrLogin}
+              /> 
               }/>
           </Switch>
       </div>
