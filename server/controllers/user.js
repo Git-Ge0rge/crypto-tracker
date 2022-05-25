@@ -24,7 +24,7 @@ async function signup(req, res) {
 }
 
 async function login(req, res) {
-  console.log(req.body)
+  console.log(`login function req.body: ${req.body}`)
   const email = req.body.email
   const password = req.body.pw
 

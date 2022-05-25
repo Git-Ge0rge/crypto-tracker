@@ -4,7 +4,7 @@ import './TableRow.css'
 const TableRow = (props) => {
     return (
         <tr>
-            <td>⭐</td>
+            <td><img className="watchlist-star" alt="Add to WatchList" src="star-outline.png"/></td>
             <td>{props.market_cap_rank} <img alt={props.name} src={props.image}/>  </td>
             <td>{props.name} ({props.symbol.toUpperCase()})</td>
             <td>${props.current_price}</td>
