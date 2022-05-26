@@ -70,25 +70,19 @@ async function addToWatchlist (req, res, coin) {
 } 
 
 async function removeFromWatchlist (req, res, coin) {
-  function removeItem(item) {
-    user.watchlist = user.watchlist.filter(i => i !== item);
-    return this;
-  }
-
-  console.log(req.body)
   const userId = req.user._id
   const user = await User.findById(userId)
-  console.log(`USER: ${user}`)
   
     if (!user) {
       console.log("Must be logged in to add to watchlist")
     } else {
-      user.watchlist = user.watchlist.filter(removeItem(req.body.coin))
+      user.watchlist = user.watchlist.filter(watchlistItem => watchlistItem != req.body.coin)
       user.save()
       console.log("you can remove from watchlist")
     }
 } 
 
+// dont need toggle as front end knows what is being watched and can be removed as such
 async function watchlistToggleAction (req, res, coin) {
   const userId = req.user._id
   const user = await User.findById(userId)
@@ -114,3 +108,4 @@ function createJWT(user) {
     {expiresIn: '24h'}
   )
 }
+
