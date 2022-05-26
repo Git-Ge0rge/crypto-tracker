@@ -37,18 +37,34 @@ function login(user) {
   })
 }
 
+// push current coin to watchlist
+function addToWatchlist(coinId) {
+  return fetch(BASE_URL + 'watchlist', {
+    method: 'POST',
+    headers: new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken()}),
+    body: JSON.stringify({coin: coinId})
+  })
+
+  
+  
+}
+
 // return logged in user based on the token
 function getUser() {
-  return tokenService.getUserFromToken();
+  return tokenService.getUserFromToken(); // changed to this from getuserfrompayload function in token service
 }
 
 function logout() {
   tokenService.removeToken();
 }
 
-export default {
+// Without declaring exportObject, was getting yellow error lines 
+const exportObject = {
   signup,
   login, 
   getUser,
-  logout
+  logout,
+  addToWatchlist
 };
+
+export default exportObject

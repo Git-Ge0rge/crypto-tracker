@@ -1,5 +1,8 @@
 import React from 'react'
 import './NavBar.css'
+import { Link } from 'react-router-dom';
+
+
 // import Navbar from 'react-bootstrap/Navbar';
 // this way should be faster but not working 
 
@@ -9,21 +12,56 @@ import { Nav, NavDropdown } from 'react-bootstrap';
 const NavBar = (props) => {
   const handleSelect = (eventKey) => console.log(`selected ${eventKey}`);
 
-  return (
+  const noUserLoggedInNav = (
     <Nav activeKey="1" onSelect={handleSelect}>
       <Nav.Item>
-        <Nav.Link eventKey="1" href="/home">
+        <Nav.Link eventKey="1" title="Home" href="/home">
           Home
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link eventKey="2" href="/coins">
+        <Nav.Link as={Link} eventKey="2" title="CryptoCurrencies" to="/coins">
           CryptoCurrencies
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link eventKey="3" title="Item">
-          Portfolio
+        <Nav.Link eventKey="3" title="Watchlist" href="/watchlist">
+          Watchlist
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="4" title="Coming Soon" disabled>
+          Swap (Coming Soon)
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="6" title="Sign-Up" href="/signup">
+          Sign-Up
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="7" title="LogIn" href="/login">
+          LogIn
+        </Nav.Link>
+      </Nav.Item>
+    </Nav>
+  )
+
+  const userLoggedInNav = (
+    <Nav activeKey="1" onSelect={handleSelect}>
+      <Nav.Item>
+        <Nav.Link eventKey="1" title="Home" href="/home">
+          Home
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="2" title="CryptoCurrencies" href="/coins">
+          CryptoCurrencies
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="3" title="Watchlist" href="/watchlist">
+          Watchlist
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
@@ -31,24 +69,19 @@ const NavBar = (props) => {
           Swap (Coming Soon)
         </Nav.Link>
       </Nav.Item>
-      <NavDropdown title="Account" id="nav-dropdown">
-        <NavDropdown.Item eventKey="5.1">Action</NavDropdown.Item>
-        <NavDropdown.Item eventKey="5.2">Another action</NavDropdown.Item>
-        <NavDropdown.Item eventKey="5.3">Something else here</NavDropdown.Item>
+      <NavDropdown title={`Hello, ${props.user}!`} id="nav-dropdown">
+        <NavDropdown.Item eventKey="5.1">Change Password</NavDropdown.Item>
         <NavDropdown.Divider />
-        <NavDropdown.Item eventKey="5.4">Log Out</NavDropdown.Item>
+        <NavDropdown.Item eventKey="5.2" onClick={() => {
+          props.handleLogout()
+        }}>Log Out</NavDropdown.Item>
       </NavDropdown>
-      <Nav.Item>
-        <Nav.Link eventKey="6" href="/signup">
-          SignUp
-        </Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="7" href="/login">
-          LogIn
-        </Nav.Link>
-      </Nav.Item>
     </Nav>
+  )
+  return (
+    <div className='NavBar'>
+      {props.user ? userLoggedInNav : noUserLoggedInNav}
+    </div>
   )
 };
   

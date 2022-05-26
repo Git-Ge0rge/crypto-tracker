@@ -9,7 +9,7 @@ import LoginPage from '../LoginPage/LoginPage'
 import userService from '../../utils/userService'
 
 function App() {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(userService.getUser())
 
   const handleLogout = () => {
     userService.logout();
@@ -18,26 +18,30 @@ function App() {
 
   const handleSignupOrLogin = () => {
     console.log('handle sign up called')
+    console.log(`Get User: ${userService.getUser()}`)
     setUser(userService.getUser())
   }
-
 
   return (
     <Router>
       <div>
         <header className="appHeader"></header> 
-          <NavBar/>
+          <NavBar user={user} handleLogout={handleLogout}/>
           <Switch>
               <Route exact path={["/home", "/", "/welcome"]} render={() =>
               <HomePage
-                // handleLogout={this.handleLogout} // Implement handle logout trigger on component
               /> 
               }/>
           </Switch>
           <Switch>
               <Route path='/coins' render={() =>
-              <CryptoPage
-                // handleLogout={this.handleLogout} // Implement handle logout trigger on component
+              <CryptoPage user = {user} setUser = {setUser}
+              /> 
+              }/>
+          </Switch>
+          <Switch>
+              <Route path='/watchlist' render={() =>
+              <CryptoPage user = {user} setUser = {setUser}
               /> 
               }/>
           </Switch>
@@ -50,9 +54,10 @@ function App() {
               }/>
           </Switch>
           <Switch>
-              <Route path='/login' render={() =>
+              <Route path='/login' render={(props) =>
               <LoginPage
-                // handleLogin={this.handleSignupOrLogin}
+                handleLogin={handleSignupOrLogin}
+                history = {props.history}
               /> 
               }/>
           </Switch>

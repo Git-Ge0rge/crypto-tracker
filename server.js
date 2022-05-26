@@ -3,7 +3,6 @@ const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 
-
 // connect to the database with Mongoose
 require('./server/config/database');
 require('dotenv').config()
@@ -17,6 +16,7 @@ app.use(express.json());
 // to serve from the production 'build' folder
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
+app.use(require("./server/config/auth")) // auth to be able to grab user on any page - stores decoded token in users req and passed down to req obj
 
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./server/routes/api/user'));

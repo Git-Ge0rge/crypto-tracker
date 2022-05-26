@@ -42,7 +42,7 @@ const CryptoTable = (props) => {
                 </tr>
             </thead>
             <tbody> 
-                {coinsList.map(coinData => <TableRow {...coinData}/>)} 
+                {coinsList.map(coinData => <TableRow {...props} {...coinData}/>)} 
                 {/* talk about spread operator in prezi */}
             </tbody>
             </Table>
