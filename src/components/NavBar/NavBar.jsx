@@ -1,5 +1,8 @@
 import React from 'react'
 import './NavBar.css'
+import { Link } from 'react-router-dom';
+
+
 // import Navbar from 'react-bootstrap/Navbar';
 // this way should be faster but not working 
 
@@ -17,7 +20,7 @@ const NavBar = (props) => {
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link eventKey="2" title="CryptoCurrencies" href="/coins">
+        <Nav.Link as={Link} eventKey="2" title="CryptoCurrencies" to="/coins">
           CryptoCurrencies
         </Nav.Link>
       </Nav.Item>

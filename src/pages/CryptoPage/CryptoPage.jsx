@@ -8,7 +8,7 @@ const CryptoPage = (props) => {
             <div>
                 <h1> Cryptocurrencies </h1>
             </div>
-            <CryptoTable /> 
+            <CryptoTable {...props} /> 
         </div>
     )
   };

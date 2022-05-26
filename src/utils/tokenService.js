@@ -5,11 +5,11 @@ function setToken(token) {
     localStorage.setItem(TOKEN_STORAGE_KEY, token)
 }
 
-// gets the payload (info that's being encoded)
+// gets the payload (info that's being encoded) // gets user 
 function getTokenPayload() {
     let token = localStorage.getItem(TOKEN_STORAGE_KEY)
     if (token) {
-        return JSON.parse(atob(token.split('.')[1]))
+        return (JSON.parse(window.atob(token.split('.')[1])))
     }
     return {}
 }
@@ -30,7 +30,7 @@ function getToken() {
     return token;
 }
 
-// gets token from localStorage to identify user 
+// gets token from localStorage to identify user // REMOVED .user and added to get payload 
 function getUserFromToken() {
     const token = localStorage.getItem(TOKEN_STORAGE_KEY)
     return token ? getTokenPayload().user : null
@@ -42,8 +42,12 @@ function removeToken() {
     localStorage.removeItem(TOKEN_STORAGE_KEY)
 }
 
-export default {
+// Without declaring exportObject, was getting yellow error lines 
+const exportObject = {
     setToken,
     getUserFromToken,
-    removeToken
+    removeToken,
+    getToken
 }
+
+export default exportObject

@@ -6,7 +6,8 @@ const SECRET = process.env.SECRET
 
 module.exports = {
   signup,
-  login
+  login,
+  addToWatchlist
 };
 
 async function signup(req, res) {
@@ -52,6 +53,24 @@ async function login(req, res) {
     return res.status(400).json(err)
   }
 }
+
+async function addToWatchlist (req, res, coin) {
+  console.log(req.body)
+  const userId = req.user._id
+  const user = await User.findById(userId)
+  console.log(`USER: ${user}`)
+
+    if (!user) {
+      console.log("Must be logged in to add to watchlist")
+    } else {
+      console.log(user.watchlist)
+      user.watchlist.push(req.body.coin)
+      console.log(user.watchlist)
+      user.save()
+      console.log("you can post to watchlist")
+    }
+  res.send('hello')
+} 
 
 /* ---- Helper Functions ----*/
 

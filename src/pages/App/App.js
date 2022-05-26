@@ -8,9 +8,8 @@ import SignupPage from '../SignupPage/SignupPage'
 import LoginPage from '../LoginPage/LoginPage'
 import userService from '../../utils/userService'
 
-function App(props) {
-  const [user, setUser] = useState(null)
-
+function App() {
+  const [user, setUser] = useState(userService.getUser())
 
   const handleLogout = () => {
     userService.logout();
@@ -21,32 +20,28 @@ function App(props) {
     console.log('handle sign up called')
     console.log(`Get User: ${userService.getUser()}`)
     setUser(userService.getUser())
-    console.log(`User: ${user}`)
   }
 
   return (
     <Router>
       <div>
         <header className="appHeader"></header> 
-          <NavBar user={props.user} handleLogout={handleLogout}/>
+          <NavBar user={user} handleLogout={handleLogout}/>
           <Switch>
               <Route exact path={["/home", "/", "/welcome"]} render={() =>
               <HomePage
-                // handleLogout={this.handleLogout} // Implement handle logout trigger on component
               /> 
               }/>
           </Switch>
           <Switch>
               <Route path='/coins' render={() =>
-              <CryptoPage 
-                // handleLogout={this.handleLogout} // Implement handle logout trigger on component
+              <CryptoPage user = {user} setUser = {setUser}
               /> 
               }/>
           </Switch>
           <Switch>
               <Route path='/watchlist' render={() =>
-              <CryptoPage 
-                // handleLogout={this.handleLogout} // Implement handle logout trigger on component
+              <CryptoPage user = {user} setUser = {setUser}
               /> 
               }/>
           </Switch>
@@ -59,9 +54,10 @@ function App(props) {
               }/>
           </Switch>
           <Switch>
-              <Route path='/login' render={() =>
+              <Route path='/login' render={(props) =>
               <LoginPage
                 handleLogin={handleSignupOrLogin}
+                history = {props.history}
               /> 
               }/>
           </Switch>

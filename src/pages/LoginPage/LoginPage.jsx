@@ -22,7 +22,7 @@ class LoginPage extends Component {
     try {
       await userService.login({ ...this.state })
       this.props.handleLogin();
-      this.props.history.push('/');
+      this.props.history.push('/welcome');
     } catch (err) {
       console.log(err)
       alert('Login Error:', err)
