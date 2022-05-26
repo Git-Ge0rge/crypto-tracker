@@ -63,14 +63,43 @@ async function addToWatchlist (req, res, coin) {
     if (!user) {
       console.log("Must be logged in to add to watchlist")
     } else {
-      console.log(user.watchlist)
       user.watchlist.push(req.body.coin)
-      console.log(user.watchlist)
       user.save()
       console.log("you can post to watchlist")
     }
-  res.send('hello')
 } 
+
+async function removeFromWatchlist (req, res, coin) {
+  function removeItem(item) {
+    user.watchlist = user.watchlist.filter(i => i !== item);
+    return this;
+  }
+
+  console.log(req.body)
+  const userId = req.user._id
+  const user = await User.findById(userId)
+  console.log(`USER: ${user}`)
+  
+    if (!user) {
+      console.log("Must be logged in to add to watchlist")
+    } else {
+      user.watchlist = user.watchlist.filter(removeItem(req.body.coin))
+      user.save()
+      console.log("you can remove from watchlist")
+    }
+} 
+
+async function watchlistToggleAction (req, res, coin) {
+  const userId = req.user._id
+  const user = await User.findById(userId)
+  console.log(`USER: ${user}`)
+
+  if (user.watchlist.includes(req.body.coin)){
+    removeFromWatchlist(req.body.coin)
+  } else {
+    addToWatchlist(req.body.coin)
+  }
+}
 
 /* ---- Helper Functions ----*/
 

@@ -1,15 +1,21 @@
-import React, {previousState, assign} from 'react'
+import React from 'react'
 import './TableRow.css'
 import UserService from "../../utils/userService"
 
 const TableRow = (props) => {
 
-    console.log(`USER Passed down: ${props.user.watchlist}`)
+    const updateWatchlistState = () => {
+        // store value of current state before making changes
+        const updatedUser = {...props.user}
+        // update state inclusive of old state + adding new id to watchlist
+        updatedUser.watchlist = [...updatedUser.watchlist, props.id]
+        // set state with new added id 
+        props.setUser(updatedUser)
+    }
 
     const watchListHandler = () => {
         console.log('handler clicked')
-        // props.user.assign(previousState, {watchlist: [...props.user.watchlist + props.id]})
-        // props.setUser.watchlist([...props.user.watchlist, props.id ])
+        updateWatchlistState()
         UserService.addToWatchlist(props.id)
     }
 
@@ -24,8 +30,6 @@ const TableRow = (props) => {
     //     fetch(user.watchlist)
     
     // }
-
-    console.log(`watchlist: ${props.user.watchlist}`)
 
     return (
         <tr>
