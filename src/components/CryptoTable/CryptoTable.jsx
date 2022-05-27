@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import './CryptoTable.css'
 import { Table } from 'react-bootstrap';
 import TableRow from '../TableRow/TableRow'
-import { CoinList } from '../../api'
-
 
 const CryptoTable = (props) => {
     const [coinsList, setCoinsList] = useState([])

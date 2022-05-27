@@ -37,16 +37,22 @@ function login(user) {
   })
 }
 
-// push current coin to watchlist
+// push current coin to watchlist // communicating coinId as the data being passed to the back end
 function addToWatchlist(coinId) {
-  return fetch(BASE_URL + 'watchlist', {
+  return fetch(BASE_URL + 'watchlist/add', {
     method: 'POST',
     headers: new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken()}),
     body: JSON.stringify({coin: coinId})
   })
+}
 
-  
-  
+// push current coin to watchlist // communicating coinId as the data being passed to the back end
+function removeFromWatchlist(coinId) {
+  return fetch(BASE_URL + 'watchlist/remove', {
+    method: 'POST',
+    headers: new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken()}),
+    body: JSON.stringify({coin: coinId})
+  })
 }
 
 // return logged in user based on the token
@@ -59,12 +65,13 @@ function logout() {
 }
 
 // Without declaring exportObject, was getting yellow error lines 
-const exportObject = {
+const  exportObject = {
   signup,
   login, 
   getUser,
   logout,
-  addToWatchlist
+  addToWatchlist,
+  removeFromWatchlist
 };
 
 export default exportObject

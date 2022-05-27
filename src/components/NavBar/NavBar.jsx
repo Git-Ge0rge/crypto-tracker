@@ -69,7 +69,7 @@ const NavBar = (props) => {
           Swap (Coming Soon)
         </Nav.Link>
       </Nav.Item>
-      <NavDropdown title={`Hello, ${props.user}!`} id="nav-dropdown">
+      <NavDropdown title={`Hello, {props.user.name}!`} id="nav-dropdown">
         <NavDropdown.Item eventKey="5.1">Change Password</NavDropdown.Item>
         <NavDropdown.Divider />
         <NavDropdown.Item eventKey="5.2" onClick={() => {

@@ -7,7 +7,8 @@ const SECRET = process.env.SECRET
 module.exports = {
   signup,
   login,
-  addToWatchlist
+  addToWatchlist,
+  removeFromWatchlist
 };
 
 async function signup(req, res) {

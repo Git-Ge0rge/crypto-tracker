@@ -4,7 +4,17 @@ import UserService from "../../utils/userService"
 
 const TableRow = (props) => {
 
-    const updateWatchlistState = () => {
+    const addToWatchlistState = () => {
+        // store value of current state before making changes
+        const updatedUser = {...props.user}
+        // update state inclusive of old state + adding new id to watchlist
+        updatedUser.watchlist = [...updatedUser.watchlist, props.id]
+        // set state with new added id 
+        props.setUser(updatedUser)
+    }
+
+    // change this to remove from watchlist state 
+    const removeFromWatchlistState = () => {
         // store value of current state before making changes
         const updatedUser = {...props.user}
         // update state inclusive of old state + adding new id to watchlist
@@ -14,16 +24,34 @@ const TableRow = (props) => {
     }
 
     const watchListHandler = () => {
-        console.log('handler clicked')
-        updateWatchlistState()
-        UserService.addToWatchlist(props.id)
+        if (props.user) {
+            if (props.user.watchlist.includes(props.id)) {
+                console.log('remove handler clicked')
+                removeFromWatchlistState()
+                UserService.removeFromWatchlist(props.id)
+            } else {
+                console.log('add handler clicked')
+                addToWatchlistState()
+                UserService.addToWatchlist(props.id)
+                }
+        } else {
+            console.log('log in to click')
+        }
     }
+    
+    
 
+    // refactor this to save lines 
     const checkIfInWatchlist = () => {
-        if (props.user.watchlist.includes(props.id)) {
-            return "star.png"
-        } else 
+        if (props.user) {
+            if (props.user.watchlist.includes(props.id)) {
+                return "star.png"
+            } else {
+                return "star-outline.png"
+            }
+        } else {
             return "star-outline.png"
+        }
     }
 
     // componentDidMount() {
