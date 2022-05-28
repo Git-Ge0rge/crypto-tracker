@@ -10,6 +10,20 @@ import { Link } from 'react-router-dom';
 import { Nav, NavDropdown } from 'react-bootstrap';
 
 const NavBar = (props) => {
+
+  const navCheck = () => {
+    if (props.user === null || undefined){
+      console.log("1" + props.user)
+      return noUserLoggedInNav
+    } else if (props.user.name) {
+      console.log("2" + props.user)
+      return userLoggedInNav
+    } else {
+      console.log("3" + props.user)
+      return noUserLoggedInNav
+    }
+  }
+
   const handleSelect = (eventKey) => console.log(`selected ${eventKey}`);
 
   const noUserLoggedInNav = (
@@ -69,8 +83,8 @@ const NavBar = (props) => {
           Swap (Coming Soon)
         </Nav.Link>
       </Nav.Item>
-      <NavDropdown title={`Hello, {props.user.name}!`} id="nav-dropdown">
-        <NavDropdown.Item eventKey="5.1">Change Password</NavDropdown.Item>
+      <NavDropdown title={`My Account`} id="nav-dropdown">
+        <NavDropdown.Item disabled eventKey="5.1">Change Password</NavDropdown.Item>
         <NavDropdown.Divider />
         <NavDropdown.Item eventKey="5.2" onClick={() => {
           props.handleLogout()
@@ -78,9 +92,12 @@ const NavBar = (props) => {
       </NavDropdown>
     </Nav>
   )
+
+  
   return (
     <div className='NavBar'>
-      {props.user ? userLoggedInNav : noUserLoggedInNav}
+      {navCheck()}
+      {/* { props.user ? userLoggedInNav : noUserLoggedInNav } */}
     </div>
   )
 };

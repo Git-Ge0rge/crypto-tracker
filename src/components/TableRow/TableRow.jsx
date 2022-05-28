@@ -3,14 +3,14 @@ import './TableRow.css'
 import UserService from "../../utils/userService"
 
 const TableRow = (props) => {
-
+    
     const addToWatchlistState = () => {
         // store value of current state before making changes
         const updatedUser = {...props.user}
         // update state inclusive of old state + adding new id to watchlist
         updatedUser.watchlist = [...updatedUser.watchlist, props.id]
         // set state with new added id 
-        props.setUser(updatedUser)
+        props.setUser(updatedUser) 
     }
 
     // change this to remove from watchlist state 
@@ -18,7 +18,7 @@ const TableRow = (props) => {
         // store value of current state before making changes
         const updatedUser = {...props.user}
         // update state inclusive of old state + adding new id to watchlist
-        updatedUser.watchlist = [...updatedUser.watchlist, props.id]
+        updatedUser.watchlist = updatedUser.watchlist.filter(watchlistItem => watchlistItem !== props.id)
         // set state with new added id 
         props.setUser(updatedUser)
     }
@@ -38,10 +38,8 @@ const TableRow = (props) => {
             console.log('log in to click')
         }
     }
-    
-    
 
-    // refactor this to save lines 
+    // visual watchlist check - pushes star to img src 
     const checkIfInWatchlist = () => {
         if (props.user) {
             if (props.user.watchlist.includes(props.id)) {
@@ -53,11 +51,6 @@ const TableRow = (props) => {
             return "star-outline.png"
         }
     }
-
-    // componentDidMount() {
-    //     fetch(user.watchlist)
-    
-    // }
 
     return (
         <tr>

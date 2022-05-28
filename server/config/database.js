@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
+require('dotenv').config()
+
 
 // add database URL to ENV file
-mongoose.connect('mongodb+srv://george:george123@georgedb.ti1so.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect(`mongodb+srv://${process.env.REACT_APP_DATABASE_URL}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 // not supported anymore // useFindAndModify might be needed for certain errors

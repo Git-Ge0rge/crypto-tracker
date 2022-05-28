@@ -43,6 +43,9 @@ function addToWatchlist(coinId) {
     method: 'POST',
     headers: new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken()}),
     body: JSON.stringify({coin: coinId})
+  // }).then(({ token }) => {
+  //   tokenService.setToken(token);
+  // doesn't help with my issue of refreshing watchlist data
   })
 }
 
@@ -52,6 +55,9 @@ function removeFromWatchlist(coinId) {
     method: 'POST',
     headers: new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken()}),
     body: JSON.stringify({coin: coinId})
+  // }).then(({ token }) => {
+  //   tokenService.setToken(token);
+  // doesn't help with my issue of refreshing watchlist data
   })
 }
 

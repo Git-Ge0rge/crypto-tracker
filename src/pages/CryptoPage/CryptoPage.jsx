@@ -3,6 +3,7 @@ import CryptoTable from '../../components/CryptoTable/CryptoTable'
 import './CryptoPage.css'
 
 const CryptoPage = (props) => {
+
     return (
         <div className="CryptoPage">
             <div>

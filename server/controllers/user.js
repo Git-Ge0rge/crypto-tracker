@@ -83,19 +83,6 @@ async function removeFromWatchlist (req, res, coin) {
     }
 } 
 
-// dont need toggle as front end knows what is being watched and can be removed as such
-async function watchlistToggleAction (req, res, coin) {
-  const userId = req.user._id
-  const user = await User.findById(userId)
-  console.log(`USER: ${user}`)
-
-  if (user.watchlist.includes(req.body.coin)){
-    removeFromWatchlist(req.body.coin)
-  } else {
-    addToWatchlist(req.body.coin)
-  }
-}
-
 /* ---- Helper Functions ----*/
 
 function sendBadCredentialsResponse(res) {
