@@ -1,6 +1,6 @@
-# Crypto Seeker
+![CryptoSeekerLogo](public/logo-full.png)
 
-## Project 4 - Full-Stack React App (SPA)
+## Project 4 - Crypto Seeker (Full-Stack React App)(SPA)
 
 ### About the Project
 
@@ -24,9 +24,17 @@ In our next major update, we will be introducing the ability to be able to conne
 
 ### Screenshots
 
+![Coins Page](public/app-screenshot.png)
+
 ### Wireframe
 
+![wireframe](public/wireframe.png)
+
 ### ERD
+
+![ERD](public/erd.png)
+
+- More relationships will be added as feature updates get pushed out. (e.g. one to many relationship with users and MetaMask wallets as one user can have many wallets)
 
 ### Next Steps / Ice Box Features
 
